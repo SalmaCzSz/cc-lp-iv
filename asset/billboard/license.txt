@@ -1,0 +1,11 @@
+Model Information:
+* title:	45'x15' Billboard (Short)
+* source:	https://sketchfab.com/3d-models/45x15-billboard-short-d1e59f554f4d41169c491426bc11e375
+* author:	Cregan Max (https://sketchfab.com/creativeganad)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "45'x15' Billboard (Short)" (https://sketchfab.com/3d-models/45x15-billboard-short-d1e59f554f4d41169c491426bc11e375) by Cregan Max (https://sketchfab.com/creativeganad) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
