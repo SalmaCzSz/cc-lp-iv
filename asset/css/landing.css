@@ -62,7 +62,7 @@ section .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 section.one .container {
@@ -75,10 +75,9 @@ section.two .container {
 
 section.three{
     margin: 0 auto;
-    padding: 0 15px;
-    grid-template-areas: '.. content ..';
+    padding-top: 15%;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .hero {
