@@ -102,15 +102,18 @@ scene.add(overlay)
 let anuncio = null
 
 gltfLoader.load(
-    './asset/billboard/scene.gltf',
+    './asset/billboard/Pantalla_12x6.glb',
     (gltf) => {
         console.log(gltf);
 
         anuncio = gltf.scene
 
-        const radius = 0.1
-        anuncio.position.x = 1.2
-        anuncio.scale.set(radius, radius, radius)
+        anuncio.position.x = 1.5
+        anuncio.rotation.x = -0.1
+        anuncio.rotation.y = -2.1
+        
+        const radius = 0.0099
+        anuncio.scale.set(radius*1.5, radius, radius*1.5)
 
         scene.add(anuncio)
     },
@@ -125,15 +128,8 @@ gltfLoader.load(
 /**
  * Light
  */
-const ambientLight = new THREE.AmbientLight(0xffffff, 1.5)
-scene.add(ambientLight)
-
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1.1)
-directionalLight.position.set(0, 1, 0)
-
-directionalLight.color.set(0xf0f0f0); // Cambia el color a un tono más claro
-directionalLight.shadow.darkness = 0.4; // Cambia el valor a 0.5 o prueba con diferentes valores
-
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+directionalLight.position.set(0, 5, 5)
 directionalLight.castShadow = true
 scene.add(directionalLight)
 
@@ -153,30 +149,37 @@ let currentSection = 0
 
 const transformanuncio = [{
         rotationZ: 0,
-        positionX: 1.2
+        rotationY: -2.2,
+        positionX: 1.5
     },
     {
-        rotationZ: -0.01,
-        positionX: -1.5,
-    },
-    {
-        rotationZ: 0,
-        positionX: 1.2
-    },
-    {
-        rotationZ: -0.01,
-        positionX: -1.5,
+        rotationZ: -0.1,
+        rotationY: 4.55,
+        positionX: -1.5
     },
     {
         rotationZ: 0,
-        positionX: 1.2
+        rotationY: -2.2,
+        positionX: 1.5
+    },
+    {
+        rotationZ: -0.1,
+        rotationY: 4.55,
+        positionX: -1.5
     },
     {
         rotationZ: 0,
+        rotationY: -2.2,
+        positionX: 1.5
+    },
+    {
+        rotationZ: 0,
+        rotationY: -2,
         positionX: 0
     },
     {
-        rotationZ: 0.1,
+        rotationZ: 0,
+        rotationY: 0,
         positionX: 0
     }
 ]
@@ -196,14 +199,15 @@ window.addEventListener('scroll', () => {
                 anuncio.rotation, {
                     duration: 1.5,
                     ease: 'power2.inOut',
-                    z: transformanuncio[currentSection].rotationZ
+                    z: transformanuncio[currentSection].rotationZ,
+                    y: transformanuncio[currentSection].rotationY
                 }
             )
             gsap.to(
                 anuncio.position, {
                     duration: 1.5,
                     ease: 'power2.inOut',
-                    x: transformanuncio[currentSection].positionX
+                    x: transformanuncio[currentSection].positionX,
                 }
             )
 
@@ -252,7 +256,8 @@ const tick = () => {
     lastElapsedTime = elapsedTime
 
     if (!!anuncio) {
-        anuncio.position.y = Math.sin(elapsedTime * .5) * .1 - 0.1
+        //anuncio.position.y = Math.sin(elapsedTime * .5) * .1 - 0.1
+        anuncio.position.y = Math.sin(elapsedTime * .1) * 0.1 - 1
         sphereShadow.material.opacity = (1 - Math.abs(anuncio.position.y)) * 0.3
     }
 
